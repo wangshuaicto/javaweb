@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    <description>demo01</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>wsTaglib</short-name>
+    <uri>/ws/tagdemo01</uri>
+    <tag>
+    	<name>tag01</name>
+    	<tag-class>com.test.jsptaglib.TagDemo01</tag-class>
+    	<body-content>JSP</body-content>
+    </tag>
+    <tag>
+    	<name>tag02</name>
+    	<tag-class>com.test.jsptaglib.TagDemo02</tag-class>
+    	<body-content>JSP</body-content>
+    </tag>
+    <tag>
+    	<name>tag03</name>
+    	<tag-class>com.test.jsptaglib.TagDemo03</tag-class>
+    	<body-content>empty</body-content>
+    </tag>
+    <tag>
+    	<name>tag04</name>
+    	<tag-class>com.test.jsptaglib.TagDemo04</tag-class>
+    	<body-content>JSP</body-content>
+    </tag>
+    <tag>
+    	<name>tagbody</name>
+    	<tag-class>com.test.jsptaglib.TagDemobody</tag-class>
+    	<body-content>JSP</body-content>
+    </tag>
+    
+    <tag>
+    	<name>simpletag01</name>
+    	<tag-class>com.test.simpletag.SimpleTag01</tag-class>
+    	 <!--          
+    	 tld文件中有四种标签体类型 ：empty  JSP  scriptless  tagdepentend  
+	             在简单标签(SampleTag)中标签体body-content的值只允许是empty和scriptless，不允许设置成JSP,如果设置成JSP就会出现异常
+	             在传统标签中标签体body-content的值只允许是empty和JSP
+	             如果标签体body-content的值设置成tagdepentend，那么就表示标签体里面的内容是给标签处理器类使用的，
+	            例如：开发一个查询用户的sql标签，此时标签体重的SQL语句就是给SQL标签的标签处理器来使用的
+	             <gacl:sql>SELECT * FROM USER</gacl:sql>
+	            在这种情况下，sql标签的<body-content>就要设置成tagdepentend，tagdepentend用得比较少，了解一下即可
+         -->
+    	<body-content>scriptless</body-content>
+    </tag>
+    <tag>
+    	<name>simpletag02</name>
+    	<tag-class>com.test.simpletag.SimpleTag02</tag-class>
+    	<body-content>scriptless</body-content>
+    </tag>
+    <tag>
+    	<name>simpletag03</name>
+    	<tag-class>com.test.simpletag.SimpleTag03</tag-class>
+    	<body-content>scriptless</body-content>
+    </tag>
+    <tag>
+    	<name>simpletag04</name>
+    	<tag-class>com.test.simpletag.SimpleTag04</tag-class>
+    	<body-content>scriptless</body-content>
+    	<attribute>
+    		<name>count</name>
+    		<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
+    
+    <tag>
+    	<name>refertag</name>
+    	<tag-class>com.test.simpletag.ReferTag</tag-class>
+    	<body-content>empty</body-content>
+    	<attribute>
+    		<name>site</name>
+    		<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>page</name>
+    		<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
+    
+    <tag>
+    	<name>foreach</name>
+    	<tag-class>com.test.simpletag.ForeachTag</tag-class>
+    	<body-content>scriptless</body-content>
+    	<attribute>
+    		<name>items</name>
+    		<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>var</name>
+    		<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
+    
+    <function>
+    	<name>filter</name>
+    	<function-class>com.test.jsptaglib.HtmlFilter</function-class>
+    	<function-signature>java.lang.String filter(java.lang.String)</function-signature>
+    </function>
+</taglib>
