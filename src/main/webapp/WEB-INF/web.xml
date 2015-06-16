@@ -21,6 +21,12 @@
    <listener>
    	<listener-class>com.test.servletrequestlistener.MyServletRequestListener</listener-class>
    </listener>
+   <listener>
+   	<listener-class>com.test.servletcontextattributelistener.MyServletContextAttributeListener</listener-class>
+   </listener>
+   <listener>
+   	<listener-class>com.test.selfsessiontimer.SessionScanerListener</listener-class>
+   </listener>
    
    
   <filter>

@@ -27,7 +27,7 @@ public class MyHttpSessionListener implements HttpSessionListener {
      */
     public void sessionCreated(HttpSessionEvent se)  { 
          // TODO Auto-generated method stub
-    	System.out.println(se.getSession()+"创建了");
+    	System.out.println("||Session|| "+se.getSession()+"创建了");
     }
 
 	/**
@@ -35,7 +35,7 @@ public class MyHttpSessionListener implements HttpSessionListener {
      */
     public void sessionDestroyed(HttpSessionEvent se)  { 
          // TODO Auto-generated method stub
-    	System.out.println(se.getSession()+"销毁了");
+    	System.out.println("||Session|| "+se.getSession()+"销毁了");
     }
 	
 }
