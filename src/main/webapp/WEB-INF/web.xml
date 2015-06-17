@@ -167,6 +167,18 @@
   	<servlet-name>DoFormServlet</servlet-name>
   	<servlet-class>com.test.request.form.DoFormServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<description></description>
+  	<display-name>AnnotationHandlerServlet</display-name>
+  	<servlet-name>AnnotationHandlerServlet</servlet-name>
+  	<servlet-class>com.test.springmvc.AnnotationHandlerServlet</servlet-class>
+  	<init-param>
+  		<description>配置要扫描的包及其子包，如果有多个包，以逗号分隔</description>
+  		<param-name>basePackage</param-name>
+  		<param-value>com.test.springmvc.web.controller</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ServletDemo01</servlet-name>
   	<url-pattern>/ServletDemo01</url-pattern>
@@ -242,6 +254,10 @@
   <servlet-mapping>
   	<servlet-name>DoFormServlet</servlet-name>
   	<url-pattern>/DoFormServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AnnotationHandlerServlet</servlet-name>
+  	<url-pattern>*.action</url-pattern>
   </servlet-mapping>
   
   
