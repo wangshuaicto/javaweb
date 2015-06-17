@@ -40,7 +40,7 @@ public class LoginServeletComplex {
 	//初始化参数
 	public void init(Map<String,String> initParamMap)
 	{
-		System.out.println("注解Servlet初始化数据"+initParamMap.get("gacl"));
-		System.out.println("注解Servlet初始化数据"+initParamMap.get("xdp"));
+		System.out.println("注解Servlet初始化数据："+initParamMap.get("gacl"));
+		System.out.println("注解Servlet初始化数据："+initParamMap.get("xdp"));
 	}
 }
