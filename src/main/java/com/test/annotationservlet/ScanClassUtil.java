@@ -60,6 +60,37 @@ public class ScanClassUtil {
 							JarEntry entry = entries.nextElement();
 							String name = entry.getName();
 							//-------------------未完成续写
+							if(name.charAt(0)=='/')
+							{
+								//如果name是以/开始则截取后面的字符串
+								name = name.substring(1);
+							}
+							if(name.startsWith(packageDirName))
+							{
+								//如果前半部分和定义的包名相同
+								int idx = name.lastIndexOf('/');
+								if(idx != -1)
+								{
+									packageName = name.substring(0,idx).replace('/', '.');
+								}
+								if((idx!=-1)|| recursive)
+								{
+									//如果是class而不是目录
+									if(name.endsWith(".class") && !entry.isDirectory())
+									{
+										//去掉后面的.class获取真正的类名
+										String className = name.substring(packageName.length()+1,name.length()-6);
+										try
+										{
+											//添加到classes
+											classes.add(Class.forName(packageName+"."+className));
+										}catch(Exception e)
+										{
+											
+										}
+									}
+								}
+							}
 						}
 						
 					}catch(Exception e)
@@ -72,6 +103,7 @@ public class ScanClassUtil {
 		{
 			
 		}
+		return classes;
 	}
 	
 	public static void  findAndAddClassesInPackageByFile(String packageName,String packagePath,final boolean recursive,Set<Class<?>> classes)
@@ -105,7 +137,7 @@ public class ScanClassUtil {
 				String className = file.getName().substring(0,file.getName().length()-6);
 				//添加到集合中去
 				try {
-					classes.add(Thread.currentThread().getContextClassLoader().loadClass(className));
+					classes.add(Thread.currentThread().getContextClassLoader().loadClass(packageName+"."+className));
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

@@ -11,7 +11,7 @@ public @interface WebServlet {
 	//servlet的访问URL
 	String value();
 	//servlet访问的url
-	String[] urlPatterns() default {""};
+	String[] urlPatterns() default {};
 	//servlet的描述
 	String description() default "";
 	//servlet显示名称

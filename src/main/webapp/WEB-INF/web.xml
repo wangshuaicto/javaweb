@@ -28,6 +28,17 @@
    	<listener-class>com.test.selfsessiontimer.SessionScanerListener</listener-class>
    </listener>
    
+   <filter>
+   	<description>注解处理过滤器</description>
+   	<filter-name>AnnotationHandlerFilter</filter-name>
+   	<filter-class>com.test.annotationservlet.AnnotationHandlerFilter</filter-class>
+   	<init-param>
+            <description>配置要扫描包及其子包, 如果有多个包,以逗号分隔</description>
+            <param-name>basePackage</param-name>
+            <param-value>com.test.web.controller</param-value>
+            <!-- <param-value>me.gacl.web.controller</param-value> -->
+    </init-param>
+   </filter>
    
   <filter>
   	<filter-name>TransActionFilter</filter-name>
@@ -47,6 +58,12 @@
   	<filter-name>GzipFilter</filter-name>
   	<filter-class>com.test.gzipfilterdemo.GzipFilter</filter-class>
   </filter>
+  
+   <filter-mapping>
+        <filter-name>AnnotationHandlerFilter</filter-name>
+        <!-- 拦截后缀是.do的请求 -->
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
   
   <filter-mapping>
   	<filter-name>TransActionFilter</filter-name>
