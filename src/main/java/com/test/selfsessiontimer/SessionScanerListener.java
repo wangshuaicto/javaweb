@@ -24,7 +24,7 @@ public class SessionScanerListener implements HttpSessionListener,ServletContext
 		//创建定时器
 		Timer timer = new Timer();
 		//暂时注释
-		timer.schedule(new MyTask(list, lock),0, 1000*30);
+		//timer.schedule(new MyTask(list, lock),0, 1000*30);
 	}
 
 	public void contextDestroyed(ServletContextEvent sce) {
