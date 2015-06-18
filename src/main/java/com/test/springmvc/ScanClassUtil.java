@@ -20,7 +20,8 @@ public class ScanClassUtil {
 	 */
 	public static Set<Class<?>> getClasses(String pack)
 	{
-		//第一个class类集合
+		//第一个class类集合    
+		//选择Set是因为Set集合 无序且不可重复
 		Set<Class<?>> classes = new LinkedHashSet<Class<?>>();
 		//是否循环迭代
 		boolean recursive = true;
