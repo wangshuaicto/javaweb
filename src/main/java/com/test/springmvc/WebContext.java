@@ -11,22 +11,22 @@ public class WebContext {
 	public static ThreadLocal<HttpServletRequest> requestHolder = new ThreadLocal<HttpServletRequest>();
 	
 	
-	public HttpServletRequest getRequest()
+	public static HttpServletRequest getRequest()
 	{
 		return requestHolder.get();
 	}
 	
-	public HttpServletResponse getResponse()
+	public static HttpServletResponse getResponse()
 	{
 		return resposeHolder.get();
 	}
 	
-	public HttpSession getSession()
+	public static HttpSession getSession()
 	{
 		return requestHolder.get().getSession();
 	}
 
-	public ServletContext getServletContext()
+	public static ServletContext getServletContext()
 	{
 		return requestHolder.get().getSession().getServletContext();
 	}
